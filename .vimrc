@@ -11,7 +11,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set enc=utf-8
-"set ls=2
+set ls=2
 
 "Vundle settings
 filetype off
