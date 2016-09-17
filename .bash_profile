@@ -4,7 +4,7 @@ export PGDATA
 PGPORT=5433
 export PGPORT
 export PAGER=less
-export LESS="-iMSx4 -FXR"
+export LESS="-IMSx4 -FJXR"
 PATH=$PATH:/usr/pgsql-9.3/bin
 export PATH
 PERL5LIB='/usr/local/lib/perl5'
