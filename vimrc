@@ -12,6 +12,8 @@ set nowritebackup
 set noswapfile
 set enc=utf-8
 set ls=2
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
@@ -29,3 +31,6 @@ Plugin 'scrooloose/nerdtree.git'
 
 call vundle#end()
 filetype plugin indent on
+
+let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeWinSize = 20
