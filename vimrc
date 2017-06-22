@@ -33,4 +33,5 @@ call vundle#end()
 filetype plugin indent on
 
 let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 20
