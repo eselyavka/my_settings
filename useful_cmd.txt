@@ -22,3 +22,24 @@ dpkg -l | tail -n +6 | grep -E 'linux-image-[0-9]+' | grep -Fv $(uname -r)
 #chrome socks
 ssh -D 1080 -f -C -q -N user@example.com
 google-chrome --proxy-server="socks5://localhost:1080" --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE localhost"
+
+#GIT
+git show <hash>
+git show SomeOtherBranch:<filename>
+
+git bisect start
+git bisect bad HEAD
+git bisect good <commit>
+git bisect reset
+
+git log --patch <filename>
+git log --since=two.weeks.ago --reverse -- <filename>
+git log --author=<name>
+git log --oneline --graph --all --abbrev-commit
+git log --after="April 1, 2016" --before="April 30, 2016"
+git log -L 1,1:<filename>
+git log -L:bar:<filename>
+git shortlog -s -n
+
+git ls-files <pattern>
+git grep -i --heading --line-number <pattern>
