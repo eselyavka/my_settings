@@ -12,3 +12,5 @@
     editor = vim
 [status]
     submoduleSummary = true
+[diff]
+    submodule = log
