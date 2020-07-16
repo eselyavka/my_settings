@@ -9,9 +9,14 @@
     ci = commit
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     spush = push --recurse-submodules=on-demand
+    pl = pull --quie
 [core]
     editor = vim
+    autocrlf = input
 [status]
     submoduleSummary = true
 [diff]
     submodule = log
+    renames = true
+[color]
+    ui = true
