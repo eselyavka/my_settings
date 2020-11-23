@@ -15,6 +15,9 @@ ps -eo min_flt,maj_flt,cmd | sort -rnk1 | head
 #uninterruptible sleep(disk IO)
 ps -eo stat,pid,user,command | awk '{if ($1 == "D") print $0}'
 
+#thread for particular process
+top -H -p <pid>
+
 MISC
 #old kernels (Ubuntu)
 dpkg -l | tail -n +6 | grep -E 'linux-image-[0-9]+' | grep -Fv $(uname -r)
