@@ -1,4 +1,5 @@
 [ -f /etc/profile ] && source /etc/profile
+[ -f ~/.profile ] && source ~/.profile
 export PAGER=less
 export LESS="-IMSx4 -FJXR"
 PS1='[\t][\j][\u@\h:\W]\$ '
