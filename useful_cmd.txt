@@ -2,12 +2,20 @@ SYSTEM
 #all in one
 dstat -c -d -g -i -l -m -n -Ntotal -p -r -s -y -t
 
+# list process
+ps -e -o pid,args --forest
+
+# list all process thread
+ps -C firefox-bin -L -o pid,tid,pcpu,state
+
 #memory consuming processes
 ps -eo size,pid,user,command | awk '{ hr=$1/1024 ; printf("%13i Mb ",hr) } { for ( x=4 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }' | sort -rn | head
 ps -L --user $(whoami) -o pid,ppid,ruser,vsz,rss,state,priority,nice,time,%cpu,lwp,psr,cmd
+ps -e -orss=,args= | sort -b -k1,1n | pr -TW$COLUMNS
 
 #cpu consuming processes
 ps aux | sort -rnk 3,3 | head -5
+ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'
 
 #memory faults
 ps -eo min_flt,maj_flt,cmd | sort -rnk1 | head
@@ -25,6 +33,10 @@ dpkg -l | tail -n +6 | grep -E 'linux-image-[0-9]+' | grep -Fv $(uname -r)
 #chrome socks
 ssh -D 1080 -f -C -q -N user@example.com
 google-chrome --proxy-server="socks5://localhost:1080" --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE localhost"
+
+# disk usage
+du -sch /.[!.]* /*
+du --threshold=1G -ch /.[!.]* /*
 
 #GIT
 git show <hash>
