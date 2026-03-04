@@ -55,7 +55,16 @@ require_text() {
   local pattern="$2"
   local description="$3"
 
-  if rg -q --fixed-strings -- "$pattern" "$REPO_ROOT/$path"; then
+  if command -v rg >/dev/null 2>&1; then
+    if rg -q --fixed-strings -- "$pattern" "$REPO_ROOT/$path"; then
+      pass "$description"
+    else
+      fail "$description"
+    fi
+    return
+  fi
+
+  if grep -F -q -- "$pattern" "$REPO_ROOT/$path"; then
     pass "$description"
   else
     fail "$description"
