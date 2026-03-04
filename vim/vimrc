@@ -1,0 +1,36 @@
+"General settings
+"
+set backspace=indent,eol,start
+set enc=utf-8
+set expandtab
+set hidden
+set ignorecase
+set laststatus=2
+set list
+set ls=2
+set mouse=a
+set nobackup
+set nocompatible  "No vi compatible
+set noswapfile
+set nowritebackup
+set number
+set ruler
+set shell=/bin/bash
+set shiftwidth=4
+set smartcase
+set softtabstop=4
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set wildmenu
+
+syntax on
+filetype plugin indent on
+
+" Use built-in netrw instead of an external file tree plugin.
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 20
+nnoremap <silent> <Leader>e :Lexplore<CR>
+
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif

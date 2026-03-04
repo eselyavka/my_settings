@@ -1,0 +1,9 @@
+" Machine-local Vim overrides.
+" Copy to ~/.vimrc.local and adjust per host.
+
+" Example:
+" set colorcolumn=100
+" let g:netrw_winsize = 30
+"
+" If you still use YouCompleteMe locally:
+" let g:ycm_global_ycm_extra_conf = "~/.vim/legacy/ycm_extra_conf.py"

@@ -1,0 +1,12 @@
+# shellcheck shell=bash
+PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND
+
+HISTTIMEFORMAT="%F %T "
+export HISTTIMEFORMAT
+
+HISTSIZE=20000
+export HISTSIZE
+
+HISTFILESIZE=20000
+export HISTFILESIZE
