@@ -1,0 +1,9 @@
+# shellcheck shell=bash
+[ -f /etc/profile ] && source /etc/profile
+[ -f ~/.profile ] && source ~/.profile
+
+SHELL_CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+[ -f "${SHELL_CONFIG_DIR}/env.sh" ] && source "${SHELL_CONFIG_DIR}/env.sh"
+[ -f "${SHELL_CONFIG_DIR}/prompt.sh" ] && source "${SHELL_CONFIG_DIR}/prompt.sh"
+[ -f "${SHELL_CONFIG_DIR}/history.sh" ] && source "${SHELL_CONFIG_DIR}/history.sh"
+[ -f ~/.bash_profile.local ] && source ~/.bash_profile.local

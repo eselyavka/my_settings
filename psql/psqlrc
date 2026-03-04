@@ -1,0 +1,55 @@
+\pset linestyle unicode
+\pset border 2
+\pset null ¤
+\pset pager off
+\timing
+\encoding unicode
+\set PROMPT1 'user=%n,db=%/@%m:%>=%# '
+\set HISTSIZE 5000
+\set FETCH_COUNT 1000
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
+
+
+\echo '\nCurrent Host Server Date Time : '`date` '\n'
+
+\echo 'Administrative queries:\n'
+\echo '\t\t\t:settings\t-- Server Settings'
+\echo '\t\t\t:waits\t\t-- Waiting queries'
+\echo '\t\t\t:locks\t\t-- Locking queries'
+\echo '\t\t\t:blocking\t-- Blocking queries'
+\echo '\t\t\t:ccount\t\t-- Connection count'
+\echo '\t\t\t:userconn\t-- User connections info'
+\echo '\t\t\t:idletrx\t-- IDLE in transaction queires'
+\echo '\t\t\t:rsize\t\t-- Size of 20 biggest relations(tables)'
+\echo '\t\t\t:tblbloat\t-- Table bloat'
+\echo '\t\t\t:tblstorageprop\t-- Table storage prop'
+\echo '\t\t\t:tblage\t\t-- Table age'
+\echo '\t\t\t:vacuuminfo\t-- Vacuum info for all databases'
+\echo '\t\t\t:avneeded\t-- Tables which needed vacuum'
+\echo '\t\t\t:unusedindex\t-- Unused indexes'
+\echo '\t\t\t:indexusage\t-- Index usage statistics'
+\echo '\t\t\t:indexbloat\t-- Index bloating > 50MB and > 50% of table'
+\echo '\t\t\t:indexbloatall\t-- Index bloating for all tables'
+\echo '\t\t\t:indexdup\t-- Show duplicate index'
+\echo '\t\t\t:uselesscol\t-- Useless columns'
+\echo '\t\t\t:uptime\t\t-- Server uptime'
+\echo '\t\t\t:menu\t\t-- Help Menu'
+\echo '\t\t\t\\h\t\t-- Help with SQL commands'
+\echo '\t\t\t\\?\t\t-- Help with psql commands\n'
+
+\echo 'Development queries:\n'
+\echo '\t\t\t:sp\t\t-- Current Search Path'
+\echo '\t\t\t:clear\t\t-- Clear screen'
+
+\set sp 'SHOW search_path;'
+\set clear '\\! clear;'
+
+\set menu '\\i ~/.psqlrc'
+\ir queries/activity.sql
+\ir queries/storage.sql
+\ir queries/indexes.sql
+\set psqlrc_local_exists `test -f ~/.psqlrc.local && echo 1 || echo 0`
+\if :psqlrc_local_exists
+\i ~/.psqlrc.local
+\endif

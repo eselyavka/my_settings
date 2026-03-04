@@ -1,0 +1,6 @@
+# Machine-local shell overrides.
+# Copy or symlink this to ~/.bash_profile.local and adjust per host.
+
+# Example:
+# export PATH="$HOME/bin:$PATH"
+# alias gs='git status -sb'

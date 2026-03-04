@@ -1,0 +1,4 @@
+shell/*.local
+git/*.local
+vim/*.local
+psql/*.local

@@ -1,0 +1,5 @@
+\setenv PAGER less
+
+-- Machine-local psql overrides can go here.
+-- Example:
+-- \set PROMPT1 'user=%n,db=%/%R%x%# '
